@@ -1,6 +1,7 @@
 import express from "express"
 import {v4} from "uuid";
 const router = express.Router();
+
 const PRODUCTS = []
 const USERS = [
     {
@@ -17,6 +18,7 @@ var KORZINKA = []
 var ORDER = []
 var PROFILE = {}
 const CURIER = []
+
 //PRODUCTS
 
 router.get('/products', (req, res)=>{
@@ -38,10 +40,22 @@ router.post('/products', (req, res)=>{
     })
     res.send(newProduct)
 })
+router.get('products/delete', (req, res)=>{
+   // console.log(req.params)
+    res.send('hello')
+})
+
+router.put('products/:c_id/', (req, res)=>{
+    res.send({
+      c_id: req.params.c_id,
+        body:req.body
+    })
+})
 
 //USERS
 
 router.get('/users',(req, res)=>{
+    console.log(USERS)
     res.send(USERS)
 })
 
